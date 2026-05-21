@@ -73,7 +73,15 @@ namespace ProjectLetterBoxd
                             metodos.PesquisarPorDiretor(nomeDoDiretor);
                             break;
 
+                        case "6":
+                            Console.WriteLine("Ranking dos filmes por estrelas: ");
+                            metodos.RanquearFilmes();
+                            Console.WriteLine();
+                            break;
 
+                        case "7":
+                            Console.WriteLine("Saindo...");
+                            return;
                     }
 
                 }

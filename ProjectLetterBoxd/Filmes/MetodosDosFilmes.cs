@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 
 
@@ -23,7 +24,7 @@ namespace Filmes
         {
             if (filmes.Count == 0)
             {
-               Console.WriteLine("Nenhum filme cadastrado.");
+                Console.WriteLine("Nenhum filme cadastrado.");
 
             }
             else
@@ -85,10 +86,20 @@ namespace Filmes
         }
 
 
-                public void ExibirFilme(Filmes filme)
-                {
-                    Console.WriteLine($"Nome: {filme.Nome}, Diretor: {filme.Diretor}, Ano: {filme.Ano}, Estrelas: {filme.Estrelas}");
-                }
+        public void ExibirFilme(Filmes filme)
+        {
+            Console.WriteLine($"Nome: {filme.Nome}, Diretor: {filme.Diretor}, Ano: {filme.Ano}, Estrelas: {filme.Estrelas}");
+        }
+
+        public void RanquearFilmes()
+        {
+            Console.WriteLine("Ranqueando filmes por estrelas: ");
+            var filmesRanqueados = filmes.OrderByDescending(f => f.Estrelas).ThenBy(f => f.Nome).ToList();
+            foreach (var rank in filmesRanqueados)
+            {
+                Console.WriteLine(rank);
+            }
+        }
 
     }
 }
