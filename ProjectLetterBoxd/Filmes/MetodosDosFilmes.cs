@@ -66,10 +66,29 @@ namespace Filmes
 
         }
 
-        public void ExibirFilme(Filmes filme)
+        public void PesquisarPorDiretor(string nome)
         {
-            Console.WriteLine($"Nome: {filme.Nome}, Diretor: {filme.Diretor}, Ano: {filme.Ano}, Estrelas: {filme.Estrelas}");
+            var filmesDoDiretor = filmes.Where(f => f.Diretor.Equals(nome, StringComparison.OrdinalIgnoreCase)).ToList();
+            if (filmesDoDiretor == null)
+            {
+                Console.WriteLine("Nenhum filme encontrado para esse diretor.");
+                return;
+            }
+            else
+            {
+                Console.WriteLine("Filmes do diretor " + nome + ":");
+                foreach (var filmes in filmesDoDiretor)
+                {
+                    ExibirFilme(filmes);
+                }
+            }
         }
+
+
+                public void ExibirFilme(Filmes filme)
+                {
+                    Console.WriteLine($"Nome: {filme.Nome}, Diretor: {filme.Diretor}, Ano: {filme.Ano}, Estrelas: {filme.Estrelas}");
+                }
 
     }
 }

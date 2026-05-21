@@ -62,10 +62,17 @@ namespace ProjectLetterBoxd
                             break;
 
                         case "4":
-                            Console.Write("Difite o nome do filme a ser pesquisado: ");
+                            Console.Write("Digite o nome do filme a ser pesquisado: ");
                             string nomeDoFilme = Console.ReadLine();
                             metodos.PesquisarPorFilme(nomeDoFilme);
                             break;
+
+                        case "5":
+                            Console.Write("Digite o nome do diretor a ser pesquisado: ");
+                            string nomeDoDiretor = Console.ReadLine();
+                            metodos.PesquisarPorDiretor(nomeDoDiretor);
+                            break;
+
 
                     }
 
