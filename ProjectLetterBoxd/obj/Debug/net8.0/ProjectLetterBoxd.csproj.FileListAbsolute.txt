@@ -1,0 +1,14 @@
+C:\Users\felip\OneDrive\Desktop\LetterBoxd\ProjectLetterBoxd\ProjectLetterBoxd\bin\Debug\net8.0\ProjectLetterBoxd.exe
+C:\Users\felip\OneDrive\Desktop\LetterBoxd\ProjectLetterBoxd\ProjectLetterBoxd\bin\Debug\net8.0\ProjectLetterBoxd.deps.json
+C:\Users\felip\OneDrive\Desktop\LetterBoxd\ProjectLetterBoxd\ProjectLetterBoxd\bin\Debug\net8.0\ProjectLetterBoxd.runtimeconfig.json
+C:\Users\felip\OneDrive\Desktop\LetterBoxd\ProjectLetterBoxd\ProjectLetterBoxd\bin\Debug\net8.0\ProjectLetterBoxd.dll
+C:\Users\felip\OneDrive\Desktop\LetterBoxd\ProjectLetterBoxd\ProjectLetterBoxd\bin\Debug\net8.0\ProjectLetterBoxd.pdb
+C:\Users\felip\OneDrive\Desktop\LetterBoxd\ProjectLetterBoxd\ProjectLetterBoxd\obj\Debug\net8.0\ProjectLetterBoxd.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\felip\OneDrive\Desktop\LetterBoxd\ProjectLetterBoxd\ProjectLetterBoxd\obj\Debug\net8.0\ProjectLetterBoxd.AssemblyInfoInputs.cache
+C:\Users\felip\OneDrive\Desktop\LetterBoxd\ProjectLetterBoxd\ProjectLetterBoxd\obj\Debug\net8.0\ProjectLetterBoxd.AssemblyInfo.cs
+C:\Users\felip\OneDrive\Desktop\LetterBoxd\ProjectLetterBoxd\ProjectLetterBoxd\obj\Debug\net8.0\ProjectLetterBoxd.csproj.CoreCompileInputs.cache
+C:\Users\felip\OneDrive\Desktop\LetterBoxd\ProjectLetterBoxd\ProjectLetterBoxd\obj\Debug\net8.0\ProjectLetterBoxd.dll
+C:\Users\felip\OneDrive\Desktop\LetterBoxd\ProjectLetterBoxd\ProjectLetterBoxd\obj\Debug\net8.0\refint\ProjectLetterBoxd.dll
+C:\Users\felip\OneDrive\Desktop\LetterBoxd\ProjectLetterBoxd\ProjectLetterBoxd\obj\Debug\net8.0\ProjectLetterBoxd.pdb
+C:\Users\felip\OneDrive\Desktop\LetterBoxd\ProjectLetterBoxd\ProjectLetterBoxd\obj\Debug\net8.0\ProjectLetterBoxd.genruntimeconfig.cache
+C:\Users\felip\OneDrive\Desktop\LetterBoxd\ProjectLetterBoxd\ProjectLetterBoxd\obj\Debug\net8.0\ref\ProjectLetterBoxd.dll
