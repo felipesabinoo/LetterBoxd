@@ -14,6 +14,8 @@ namespace ProjectLetterBoxd
             Console.WriteLine();
             try
             {
+                MetodosDosFilmes metodos = new MetodosDosFilmes();
+
                 while (true)
                 {
                     Console.WriteLine("Digite o número correspondente a ação desejada: ");
@@ -29,7 +31,7 @@ namespace ProjectLetterBoxd
                     Console.Write("Opção: ");
                     string opcao = Console.ReadLine();
 
-                    MetodosDosFilmes metodos = new MetodosDosFilmes();
+                    
 
                     switch (opcao)
                     {
@@ -43,11 +45,13 @@ namespace ProjectLetterBoxd
                             Console.Write("Quantas estrelas você daria para o filme (1 a 5): ");
                             Enum estrelas = (Estrelas)int.Parse(Console.ReadLine());
                             metodos.AdicionarFilme(nome, diretor, ano, estrelas);
+                            Console.WriteLine();
                             break;
 
                         case "2":
 
                             metodos.ListarFilmes();
+                            Console.WriteLine();
 
                             break;
 

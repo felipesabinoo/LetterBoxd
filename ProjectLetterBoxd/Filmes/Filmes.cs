@@ -10,8 +10,6 @@ namespace Filmes
         public int Ano { get; set; }
         public Enum Estrelas { get; set; }
 
-        public List<Filmes> filmes = new List<Filmes>();
-
         public Filmes(string? nome, string? diretor, int ano, Enum estrelas)
         {
             Nome = nome;

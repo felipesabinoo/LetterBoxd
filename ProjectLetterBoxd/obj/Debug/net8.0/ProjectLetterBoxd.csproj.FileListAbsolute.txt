@@ -12,3 +12,4 @@ C:\Users\felip\OneDrive\Desktop\LetterBoxd\ProjectLetterBoxd\ProjectLetterBoxd\o
 C:\Users\felip\OneDrive\Desktop\LetterBoxd\ProjectLetterBoxd\ProjectLetterBoxd\obj\Debug\net8.0\ProjectLetterBoxd.pdb
 C:\Users\felip\OneDrive\Desktop\LetterBoxd\ProjectLetterBoxd\ProjectLetterBoxd\obj\Debug\net8.0\ProjectLetterBoxd.genruntimeconfig.cache
 C:\Users\felip\OneDrive\Desktop\LetterBoxd\ProjectLetterBoxd\ProjectLetterBoxd\obj\Debug\net8.0\ref\ProjectLetterBoxd.dll
+C:\Users\felip\OneDrive\Desktop\LetterBoxd\ProjectLetterBoxd\ProjectLetterBoxd\obj\Debug\net8.0\ProjectLetterBoxd.sourcelink.json

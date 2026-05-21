@@ -23,8 +23,8 @@ namespace Filmes
         {
             if (filmes.Count == 0)
             {
-                throw new ExceptionFilmes("Nenhum filme cadastrado.");
-                
+               Console.WriteLine("Nenhum filme cadastrado.");
+
             }
             else
             {
@@ -39,27 +39,29 @@ namespace Filmes
 
         public void RemoverFilme(string nome)
         {
-            var filmeARemover = filmes.Find(f => f.Nome == nome);
+            var filmeARemover = filmes.Find(f => f.Nome.Equals(nome, StringComparison.OrdinalIgnoreCase));
             if (filmeARemover != null)
             {
+                filmes.Remove(filmeARemover);
                 Console.WriteLine($"Filme '{filmeARemover.Nome}' removido com sucesso.");
             }
             else
             {
                 Console.WriteLine($"Filme '{nome}' não encontrado.");
             }
+
         }
 
         public void PesquisarPorFilme(string nome)
         {
-            var filmePesquisado = filmes.Find(f => f.Nome == nome);
+            var filmePesquisado = filmes.Find(f => f.Nome.Equals(nome, StringComparison.OrdinalIgnoreCase));
             if (filmePesquisado != null)
             {
                 ExibirFilme(filmePesquisado);
             }
             else
             {
-                throw new ExceptionFilmes("Filme não encontrado.");
+                Console.WriteLine($"Filme '{nome}' não encontrado.");
             }
 
         }
