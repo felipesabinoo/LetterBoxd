@@ -76,7 +76,7 @@ namespace ProjectLetterBoxd
 
                         case "0":
                             Console.WriteLine("Saindo...");
-                            break;
+                            return;
 
                         default:
                             Console.WriteLine("Opção inválida. Por Favor, tente novamente.");

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.IO;
 
 
 namespace Filmes
@@ -8,12 +9,36 @@ namespace Filmes
     internal class MetodosDosFilmes
     {
 
+        private const string CaminhoArquivo = "filmes.csv";
+
         public List<Filmes> filmes = new List<Filmes>();
 
         public MetodosDosFilmes()
         {
+            CarregarFilmes();
         }
 
+        private void SalvarFilmes()
+        {
+            var linhas = filmes.Select(f => $"{f.Nome}, {f.Diretor}, {f.Ano}, {(int)f.Estrelas}");
+            File.WriteAllLines(CaminhoArquivo, linhas);
+        }
+
+        private void CarregarFilmes()
+        {
+            if (!File.Exists(CaminhoArquivo)) return;
+            
+            foreach(var linha in File.ReadAllLines(CaminhoArquivo))
+            {
+                var partes = linha.Split(", ");
+                if (partes.Length != 4) continue;
+
+                if (!int.TryParse(partes[2], out int ano)) continue;
+                if (!int.TryParse(partes[3], out int estrelasInt)) continue;
+
+                filmes.Add(new Filmes(partes[0], partes[1], ano, (Estrelas)estrelasInt));
+            }
+        }
         public void AdicionarFilme()
         {
             Console.Write("Digite o nome do filme: ");
@@ -36,6 +61,7 @@ namespace Filmes
             Estrelas estrelas = (Estrelas)estrelasInt;
             filmes.Add(new Filmes(nome, diretor, ano, estrelas));
             Console.WriteLine($"Filme adicionado com sucesso.");
+            SalvarFilmes();
         }
 
         public void ListarFilmes()
@@ -70,7 +96,7 @@ namespace Filmes
             {
                 Console.WriteLine($"Filme '{Nome}' não encontrado.");
             }
-
+            SalvarFilmes();
         }
 
         public void PesquisarPorFilme()
