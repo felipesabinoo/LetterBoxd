@@ -79,6 +79,7 @@ namespace Filmes
                 {
                     ExibirFilme(filme);
                 }
+                Console.WriteLine($"Total de filmes: {filmes.Count}.");
             }
         }
 
@@ -229,6 +230,8 @@ namespace Filmes
                 ExibirFilme(rank);
             }
         }
+
+        
 
     }
 }
