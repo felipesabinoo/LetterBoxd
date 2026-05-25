@@ -20,7 +20,7 @@ namespace Filmes
 
         private void SalvarFilmes()
         {
-            var linhas = filmes.Select(f => $"{f.Nome}, {f.Diretor}, {f.Ano}, {(int)f.Estrelas}");
+            var linhas = filmes.Select(f => $"{f.Nome}; {f.Diretor}; {f.Ano}; {(int)f.Estrelas}");
             File.WriteAllLines(CaminhoArquivo, linhas);
         }
 
@@ -30,7 +30,7 @@ namespace Filmes
             
             foreach(var linha in File.ReadAllLines(CaminhoArquivo))
             {
-                var partes = linha.Split(", ");
+                var partes = linha.Split("; ");
                 if (partes.Length != 4) continue;
 
                 if (!int.TryParse(partes[2], out int ano)) continue;
