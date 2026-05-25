@@ -158,6 +158,30 @@ namespace Filmes
             }
         }
 
+        public void PesquisarPorEstrelas()
+        {
+            Console.Write("Quantas estrelas esse filme tem? (1 a 5): ");
+            if(!int.TryParse(Console.ReadLine(), out int estrelasInt) || estrelasInt < 1 || estrelasInt > 5)
+            {
+                Console.WriteLine("Estrelas inválidas.");
+                return;
+            }
+            Estrelas estrelas = (Estrelas)estrelasInt;
+            var filmesComEstrelas = filmes.Where(f => f.Estrelas == estrelas).ToList();
+            if(!filmesComEstrelas.Any())
+            {
+                Console.WriteLine("Nenhum filme encontrado com essa quantidade de estrelas.");
+                return;
+            }
+            else
+            {
+                Console.WriteLine("Filmes com " + estrelas + " estrelas: ");
+                foreach (var filmes in filmesComEstrelas)
+                {
+                    ExibirFilme(filmes);
+                }
+            }
+        }
 
         public void ExibirFilme(Filmes filme)
         {
