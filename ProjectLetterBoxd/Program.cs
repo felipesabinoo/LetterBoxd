@@ -28,6 +28,7 @@ namespace ProjectLetterBoxd
                     Console.WriteLine("6 - Pesquisar por ano");
                     Console.WriteLine("7 - Pesquisar por estrelas");
                     Console.WriteLine("8 - Ranquear filmes por estrelas");
+                    Console.WriteLine("9 - Editar filme");
                     Console.WriteLine("0 - Sair");
                     Console.WriteLine();
                     Console.Write("Opção: ");
@@ -84,6 +85,11 @@ namespace ProjectLetterBoxd
                             Console.WriteLine("Ranking dos filmes por estrelas: ");
                             metodos.RanquearFilmes();
                             Console.WriteLine();
+                            break;
+
+                        case "9":
+
+                            metodos.EditarFilme();
                             break;
 
                         case "0":

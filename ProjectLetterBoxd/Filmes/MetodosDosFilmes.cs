@@ -183,6 +183,38 @@ namespace Filmes
             }
         }
 
+        public void EditarFilme()
+        {
+            Console.Write("Nome do filme a ser editado: ");
+            string Nome = Console.ReadLine() ?? "";
+            var filmeAEditar = filmes.Find(f => f.Nome.Equals(Nome, StringComparison.OrdinalIgnoreCase));
+            if(filmeAEditar == null)
+            {
+                Console.WriteLine($"Filme '{Nome}' não encontrado.");
+                return;
+            } else
+            {
+                Console.WriteLine("Deixe em branco para manter o valor atual.");
+                Console.Write("Qual o novo nome do filme? ");
+                string? novoNome = Console.ReadLine();
+                Console.Write("Qual o novo diretor do filme? ");
+                string? novoDiretor = Console.ReadLine();
+                Console.Write("Qual o novo ano de lançameto do filme? ");
+                string? anoInput = Console.ReadLine();
+                Console.Write("Quantas estrelas você daria para o filme? (1 a 5): ");
+                string? estrelasInput = Console.ReadLine();
+                if (!string.IsNullOrWhiteSpace(novoNome)) filmeAEditar.Nome = novoNome;
+                if (!string.IsNullOrWhiteSpace(novoDiretor)) filmeAEditar.Diretor = novoDiretor;
+                if (!string.IsNullOrWhiteSpace(anoInput) && int.TryParse(anoInput, out int novoAno)) filmeAEditar.Ano = novoAno;
+                if (!string.IsNullOrWhiteSpace(estrelasInput)
+                    && int.TryParse(estrelasInput, out int novasEstrelas)
+                    && novasEstrelas >= 1
+                    && novasEstrelas <= 5) filmeAEditar.Estrelas = (Estrelas)novasEstrelas;
+
+                Console.WriteLine($"Filme '{filmeAEditar.Nome}' editado com sucesso.");
+            }
+        }
+
         public void ExibirFilme(Filmes filme)
         {
             Console.WriteLine($"Nome: {filme.Nome}, Diretor: {filme.Diretor}, Ano: {filme.Ano}, Estrelas: {filme.Estrelas}");
