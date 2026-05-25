@@ -14,8 +14,26 @@ namespace Filmes
         {
         }
 
-        public void AdicionarFilme(string? nome, string? diretor, int ano, Enum estrelas)
+        public void AdicionarFilme()
         {
+            Console.Write("Digite o nome do filme: ");
+            string? nome = Console.ReadLine();
+            Console.Write("Qual seu diretor: ");
+            string? diretor = Console.ReadLine();
+            Console.Write("Ano de lançamento: ");
+            if (!int.TryParse(Console.ReadLine(), out int ano))
+            {
+                Console.WriteLine("Ano inválido.");
+                return;
+            }
+            Console.Write("Quantas estrelas você daria para o filme (1 a 5): ");
+            if (!int.TryParse(Console.ReadLine(), out int estrelasInt) || estrelasInt < 1 || estrelasInt > 5)
+            {
+                Console.WriteLine("Estrelas inválidas.");
+                return;
+            }
+
+            Estrelas estrelas = (Estrelas)estrelasInt;
             filmes.Add(new Filmes(nome, diretor, ano, estrelas));
             Console.WriteLine($"Filme adicionado com sucesso.");
         }
@@ -38,9 +56,11 @@ namespace Filmes
             }
         }
 
-        public void RemoverFilme(string nome)
+        public void RemoverFilme()
         {
-            var filmeARemover = filmes.Find(f => f.Nome.Equals(nome, StringComparison.OrdinalIgnoreCase));
+            Console.Write("Nome do filme a ser removido: ");
+            string Nome = Console.ReadLine() ?? "";
+            var filmeARemover = filmes.Find(f => f.Nome.Equals(Nome, StringComparison.OrdinalIgnoreCase));
             if (filmeARemover != null)
             {
                 filmes.Remove(filmeARemover);
@@ -48,36 +68,40 @@ namespace Filmes
             }
             else
             {
-                Console.WriteLine($"Filme '{nome}' não encontrado.");
+                Console.WriteLine($"Filme '{Nome}' não encontrado.");
             }
 
         }
 
-        public void PesquisarPorFilme(string nome)
+        public void PesquisarPorFilme()
         {
-            var filmePesquisado = filmes.Find(f => f.Nome.Equals(nome, StringComparison.OrdinalIgnoreCase));
+            Console.Write("Nome do filme a ser pesquisado: ");
+            string Nome = Console.ReadLine() ?? "";
+            var filmePesquisado = filmes.Find(f => f.Nome.Equals(Nome, StringComparison.OrdinalIgnoreCase));
             if (filmePesquisado != null)
             {
                 ExibirFilme(filmePesquisado);
             }
             else
             {
-                Console.WriteLine($"Filme '{nome}' não encontrado.");
+                Console.WriteLine($"Filme '{Nome}' não encontrado.");
             }
 
         }
 
-        public void PesquisarPorDiretor(string nome)
+        public void PesquisarPorDiretor()
         {
-            var filmesDoDiretor = filmes.Where(f => f.Diretor.Equals(nome, StringComparison.OrdinalIgnoreCase)).ToList();
-            if (filmesDoDiretor == null)
+            Console.Write("Nome do diretor a ser pesquisado: ");
+            string Nome = Console.ReadLine() ?? "";
+            var filmesDoDiretor = filmes.Where(f => f.Diretor.Equals(Nome, StringComparison.OrdinalIgnoreCase)).ToList();
+            if (!filmesDoDiretor.Any())
             {
                 Console.WriteLine("Nenhum filme encontrado para esse diretor.");
                 return;
             }
             else
             {
-                Console.WriteLine("Filmes do diretor " + nome + ":");
+                Console.WriteLine("Filmes do diretor " + Nome + ":");
                 foreach (var filmes in filmesDoDiretor)
                 {
                     ExibirFilme(filmes);
@@ -94,10 +118,10 @@ namespace Filmes
         public void RanquearFilmes()
         {
             Console.WriteLine("Ranqueando filmes por estrelas: ");
-            var filmesRanqueados = filmes.OrderByDescending(f => f.Estrelas).ThenBy(f => f.Nome).ToList();
+            var filmesRanqueados = filmes.OrderByDescending(f => (int)f.Estrelas).ThenBy(f => f.Nome).ToList();
             foreach (var rank in filmesRanqueados)
             {
-                Console.WriteLine(rank);
+                ExibirFilme(rank);
             }
         }
 

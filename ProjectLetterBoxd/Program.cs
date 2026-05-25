@@ -29,22 +29,20 @@ namespace ProjectLetterBoxd
                     Console.WriteLine("0 - Sair");
                     Console.WriteLine();
                     Console.Write("Opção: ");
-                    string opcao = Console.ReadLine();
+                    string? opcao = Console.ReadLine();
 
-                    
+                    if (opcao == null)
+                    {
+                        Console.WriteLine("Entrada inválida. Por favor, tente novamente.");
+                        continue;
+                    }
 
                     switch (opcao)
                     {
                         case "1":
-                            Console.Write("Digite o nome do filme: ");
-                            string? nome = Console.ReadLine();
-                            Console.Write("Qual seu diretor: ");
-                            string? diretor = Console.ReadLine();
-                            Console.Write("Ano de lançamento: ");
-                            int ano = int.Parse(Console.ReadLine());
-                            Console.Write("Quantas estrelas você daria para o filme (1 a 5): ");
-                            Enum estrelas = (Estrelas)int.Parse(Console.ReadLine());
-                            metodos.AdicionarFilme(nome, diretor, ano, estrelas);
+
+                            Console.WriteLine("Conte me mais sobre esse filme:");
+                            metodos.AdicionarFilme();
                             Console.WriteLine();
                             break;
 
@@ -56,21 +54,18 @@ namespace ProjectLetterBoxd
                             break;
 
                         case "3":
-                            Console.Write("Nome do filme a ser removido: ");
-                            string nomeRemover = Console.ReadLine();
-                            metodos.RemoverFilme(nomeRemover);
+                            
+                            metodos.RemoverFilme();
                             break;
 
                         case "4":
-                            Console.Write("Digite o nome do filme a ser pesquisado: ");
-                            string nomeDoFilme = Console.ReadLine();
-                            metodos.PesquisarPorFilme(nomeDoFilme);
+                            
+                            metodos.PesquisarPorFilme();
                             break;
 
                         case "5":
-                            Console.Write("Digite o nome do diretor a ser pesquisado: ");
-                            string nomeDoDiretor = Console.ReadLine();
-                            metodos.PesquisarPorDiretor(nomeDoDiretor);
+                            
+                            metodos.PesquisarPorDiretor();
                             break;
 
                         case "6":
@@ -79,9 +74,13 @@ namespace ProjectLetterBoxd
                             Console.WriteLine();
                             break;
 
-                        case "7":
+                        case "0":
                             Console.WriteLine("Saindo...");
-                            return;
+                            break;
+
+                        default:
+                            Console.WriteLine("Opção inválida. Por Favor, tente novamente.");
+                            break;
                     }
 
                 }
