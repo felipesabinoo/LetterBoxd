@@ -115,6 +115,29 @@ namespace Filmes
 
         }
 
+        public void PesquisarPorAno()
+        {
+            Console.Write("Ano do filme a ser pesquisado: ");
+            if(!int.TryParse(Console.ReadLine(), out int Ano))
+            {
+                Console.WriteLine("Ano inválido.");
+                return;
+            }
+            var filmesDoAno = filmes.Where(f => f.Ano == Ano).ToList();
+            if(!filmesDoAno.Any())
+            {
+                Console.WriteLine("Nenhum filme encontrado para esse ano.");
+                return;
+            }else
+            {
+                Console.WriteLine("Filmes do ano " + Ano + ":");
+                foreach(var filmes in filmesDoAno)
+                {
+                    ExibirFilme(filmes);
+                }
+            }
+        }
+
         public void PesquisarPorDiretor()
         {
             Console.Write("Nome do diretor a ser pesquisado: ");
